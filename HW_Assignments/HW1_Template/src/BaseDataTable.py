@@ -47,12 +47,15 @@ class BaseDataTable(ABC):
         :param offset: Do not worry about this for now.
         :param order_by: Do not worry about this for now.
         :return: A derived table containing the computed rows.
+
         """
         pass
+
 
     @abstractmethod
     def insert(self, new_record):
         """
+        # note: after inserting records, there should be a save method.
 
         :param new_record: A dictionary representing a row to add to the set of records. Raises an exception if this
             creates a duplicate primary key.
@@ -63,7 +66,7 @@ class BaseDataTable(ABC):
     @abstractmethod
     def delete_by_template(self, template):
         """
-
+        # delete those rows which matches a template/WHERE clause
         Deletes all records that match the template.
 
         :param template: A template.
